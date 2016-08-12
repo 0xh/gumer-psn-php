@@ -8,7 +8,7 @@ Try it out here: http://ilendemli.info/PSN/index.php/
     *  Added composer support.
     *  Breaking changes, now in Gumer\PSN namespace.
     *  Requests are made out of constructed objects.
-    *  Authentication manager with user provider and interface that are extenisble.
+    *  Authentication manager with user provider and interface that are extensible.
 * **v0.2**:
 	* updated for the new login procedure by sony
 	* make the code a bit more tidier
@@ -46,8 +46,7 @@ I don't have to explain this, do I? But let me just say that you need a folder c
 
 // Setup the connections and instances.
 $client     = new Guzzle\Http\Client('', ['redirect.disable' => true]);
-$connection = new Gumer\PSN\Http\Connection;
-$connection->setGuzzle($client);
+$connection = (new Gumer\PSN\Http\Connection)->setGuzzle($client);
 $provider   = new Gumer\PSN\Authentication\UserProvider($connection);
 $auth       = Gumer\PSN\Authentication\Manager::instance($provider);
 
